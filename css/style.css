@@ -1,0 +1,46 @@
+:root {
+    --bg-color: #fcfaf7;
+    --text-color: #333333;
+    --gold: #c5a371;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 2;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+section { padding: 100px 30px; }
+.serif { font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 2px; }
+
+/* 메인 인트로 */
+.sub-title { font-size: 0.8rem; letter-spacing: 5px; color: var(--gold); margin-bottom: 20px; }
+.main-names { font-size: 1.8rem; margin-bottom: 40px; font-weight: 500; }
+.main-photo img { width: 100%; border-radius: 2px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); }
+.main-date { margin-top: 30px; font-weight: 500; letter-spacing: 2px; }
+.main-location { font-size: 0.9rem; color: #777; }
+
+/* 초대 문구 */
+.gold-line { width: 1px; height: 60px; background-color: var(--gold); margin: 0 auto 30px; }
+.message { font-size: 0.95rem; color: #555; }
+
+/* 갤러리 */
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+.gallery-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 3px; }
+
+/* 계좌번호 섹션 */
+.account-box { background: #fff; padding: 20px; margin-top: 20px; border: 1px solid #eee; }
+.account-box button { 
+    margin-top: 10px; padding: 10px 20px; border: none; 
+    background: var(--gold); color: #fff; border-radius: 20px; cursor: pointer;
+}
+
+/* 애니메이션 */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
+.fade-in.active { opacity: 1; transform: translateY(0); }
