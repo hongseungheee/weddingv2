@@ -1,4 +1,4 @@
-// ★ 중요: 발급받은 'JavaScript 키'를 아래 따옴표 안에 넣으세요!
+// 카카오 디벨로퍼스 JavaScript 키 연동
 Kakao.init('1acd146a3e0de1cc11ff78640d3c7a21'); 
 
 document.addEventListener('DOMContentLoaded', () => {
