@@ -58,15 +58,15 @@ function copyToClipboard(text) {
 
 // 5. 카카오톡 공유하기 기능
 function shareKakao() {
-    // 실제 배포된 깃허브 페이지 주소
-    const shareUrl = 'https://hongseungheee.github.io/weddingv2/'; 
+    // ★ 기존 주소 끝에 '?ver=1'을 붙여서 카카오톡의 악성 캐시를 강제로 뚫어줍니다.
+    const shareUrl = 'https://hongseungheee.github.io/weddingv2/?ver=1'; 
     
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
             title: '홍길동 ♥ 김미래 결혼식에 초대합니다',
             description: '2026년 5월 23일 토요일 오후 12시\n그랜드 하얏트 서울, 그랜드 볼룸',
-            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg', // 카톡 썸네일용 사진
+            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg',
             link: {
                 mobileWebUrl: shareUrl,
                 webUrl: shareUrl,
