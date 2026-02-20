@@ -12,6 +12,7 @@
     
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;1,500&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     <section class="intro">
@@ -21,7 +22,7 @@
         </div>
         
         <div class="intro-content">
-            <h1 class="main-names handwriting" id="typing-text">Wedding Day</h1>
+            <h1 class="main-names handwriting reveal-text">Wedding Day</h1>
             
             <div class="intro-details fade-in-delayed">
                 <p class="main-date">2026. 05. 23. SAT PM 12:00</p>
@@ -34,19 +35,22 @@
         <div class="gold-line"></div>
         <h2 class="serif">INVITATION</h2>
         <p class="message">
-            서로가 마주 보며 다져온 사랑을<br>
-            이제는 한곳을 바라보며 걸어가려 합니다.<br>
+            함께 맞는 여덟 번째 봄,<br>
+            서로의 따스함이 되어주려 합니다.<br>
             저희의 시작을 축복해 주세요.
         </p>
     </section>
 
     <section class="gallery fade-in">
         <h3 class="serif gold-text">GALLERY</h3>
-        <div class="gallery-grid">
-            <img src="./assets/2.jpeg" alt="사진1">
-            <img src="./assets/3.jpeg" alt="사진2">
-            <img src="./assets/4.jpeg" alt="사진3">
-            <img src="./assets/5.jpeg" alt="사진4">
+        <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/2.jpeg" alt="사진1"></div>
+                <div class="swiper-slide"><img src="./assets/3.jpeg" alt="사진2"></div>
+                <div class="swiper-slide"><img src="./assets/4.jpeg" alt="사진3"></div>
+                <div class="swiper-slide"><img src="./assets/5.jpeg" alt="사진4"></div>
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -62,6 +66,12 @@
         <p>© 2026 Gil Dong & Mi Rae. All Rights Reserved.</p>
     </footer>
 
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
