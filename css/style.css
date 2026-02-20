@@ -30,53 +30,21 @@ section:not(.intro) { padding: 100px 30px; }
 }
 
 /* [SVG 진짜 손글씨 그리기 효과] */
-.wedding-svg {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-    overflow: visible;
-}
-
+.wedding-svg { width: 100%; height: 100px; margin-bottom: 10px; overflow: visible; }
 .svg-text {
-    font-family: 'Parisienne', cursive;
-    font-size: 4rem;
-    font-weight: 400;
-    
-    /* 1단계: 내부는 투명하게, 테두리(획)만 골드 색상으로 설정 */
-    fill: transparent; 
-    stroke: var(--gold);
-    stroke-width: 1.2px;
-    
-    /* 선의 길이를 임의로 길게 잡고, 그만큼 뒤로 밀어서 처음엔 안 보이게 세팅 */
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    
-    /* 펜으로 선을 그리는 애니메이션 + 잉크가 채워지는 애니메이션 동시 적용 */
-    animation: 
-        drawStroke 2.5s ease-in-out forwards, 
-        fillColor 1s ease-in-out 2s forwards; 
+    font-family: 'Parisienne', cursive; font-size: 4rem; font-weight: 400;
+    fill: transparent; stroke: var(--gold); stroke-width: 1.2px;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000;
+    animation: drawStroke 2.5s ease-in-out forwards, fillColor 1s ease-in-out 2s forwards; 
 }
+@keyframes drawStroke { to { stroke-dashoffset: 0; } }
+@keyframes fillColor { to { fill: var(--gold); stroke-width: 0; } }
 
-/* 선을 따라 그리는 키프레임 */
-@keyframes drawStroke {
-    to { stroke-dashoffset: 0; }
-}
-
-/* 안쪽에 잉크가 스윽 채워지는 키프레임 */
-@keyframes fillColor {
-    to { fill: var(--gold); stroke-width: 0; }
-}
-
-/* 날짜/장소는 글씨가 다 써진 후 아래에서 위로 등장 */
 .intro-details.fade-in-delayed {
     opacity: 0; transform: translateY(15px);
-    animation: fadeUp 1.5s ease-out forwards; 
-    animation-delay: 2.2s; /* 글씨가 다 써진 타이밍에 맞춰 등장 */
+    animation: fadeUp 1.5s ease-out forwards; animation-delay: 2.2s; 
 }
-
-@keyframes fadeUp { 
-    to { opacity: 0.9; transform: translateY(0); } 
-}
+@keyframes fadeUp { to { opacity: 0.9; transform: translateY(0); } }
 
 .main-date { font-size: 1rem; font-weight: 300; letter-spacing: 2px; }
 .main-location { font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); margin-top: 5px; }
@@ -94,34 +62,46 @@ section:not(.intro) { padding: 100px 30px; }
 /* [라이트박스 팝업] */
 .lightbox {
     display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); z-index: 9999;
-    align-items: center; justify-content: center; flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;
 }
 .lightbox.show { display: flex; animation: fadeIn 0.3s ease-in-out; }
 .lightbox-content { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 3px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
 .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; z-index: 10000; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+/* [오시는 길 및 지도] */
+.location { padding: 100px 20px; background-color: #fff; }
+.venue-name { font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #222; }
+.venue-address { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+.map-container { width: 100%; height: 250px; background-color: #eee; border-radius: 5px; margin-bottom: 20px; }
+
+/* 내비게이션 버튼 3종 */
+.navi-buttons { display: flex; gap: 8px; justify-content: center; margin-bottom: 40px; }
+.navi-buttons button { flex: 1; padding: 10px 0; border: none; border-radius: 5px; font-size: 0.85rem; font-weight: bold; cursor: pointer; transition: 0.2s; color: #fff;}
+.btn-naver { background-color: #03C75A; }
+.btn-kakao-navi { background-color: #FEE500; color: #191919 !important; }
+.btn-tmap { background-color: #000000; }
+.navi-buttons button:active { transform: scale(0.95); }
+
+/* 교통 수단 안내 */
+.transport-info { text-align: left; background-color: #f9f9f9; padding: 25px; border-radius: 5px; }
+.info-item { margin-bottom: 20px; }
+.info-item:last-child { margin-bottom: 0; }
+.info-item h4 { font-size: 0.95rem; color: var(--gold); margin-bottom: 5px; }
+.info-item p { font-size: 0.85rem; color: #555; line-height: 1.6; }
+
 /* [계좌번호 및 송금] */
 .account-box { background: #fff; padding: 25px 20px; margin-top: 20px; border: 1px solid #eee; border-radius: 5px; }
 .account-box p { margin-bottom: 15px; font-size: 0.95rem; }
 .btn-group { display: flex; gap: 10px; justify-content: center; }
-.account-box button { 
-    padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer; 
-    font-size: 0.85rem; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; transition: transform 0.2s ease;
-}
+.account-box button { padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; transition: transform 0.2s ease;}
 .account-box button:active { transform: scale(0.95); }
 .btn-copy { background: var(--gold); color: #fff; }
 .btn-kakaopay { background: #FEE500; color: #191919; }
 
-/* [카카오톡 공유 버튼] */
+/* [카카오톡 공유 버튼 - 관리자 숨김 처리] */
 .share-section { padding: 20px 30px 60px; display: none; }
-.btn-kakao-share {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    width: 100%; max-width: 400px; margin: 0 auto; padding: 15px;
-    background-color: #FEE500; color: #191919; border: none; border-radius: 8px;
-    font-size: 1rem; font-weight: 500; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease;
-}
+.btn-kakao-share { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 400px; margin: 0 auto; padding: 15px; background-color: #FEE500; color: #191919; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease;}
 .btn-kakao-share:active { transform: scale(0.98); }
 .kakao-icon { width: 20px; height: 20px; }
 

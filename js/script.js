@@ -39,24 +39,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // [추가된 기능] 관리자(신랑/신부) 전용 카카오톡 공유 버튼 보이기
-    // 주소 끝에 ?admin=true 가 붙어있을 때만 숨겨진 공유 버튼을 나타나게 함
+    // 4. 관리자(신랑/신부) 전용 카카오톡 공유 버튼 보이기
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('admin') === 'true') {
         const shareSection = document.querySelector('.share-section');
-        if (shareSection) {
-            shareSection.style.display = 'block';
-        }
+        if (shareSection) { shareSection.style.display = 'block'; }
+    }
+
+    // 5. 카카오맵 API 초기화 및 그리기 (라루체 명동 좌표)
+    if (window.kakao && kakao.maps) {
+        const mapContainer = document.getElementById('map'); 
+        const mapOption = { 
+            center: new kakao.maps.LatLng(37.5598, 126.9850), // 라루체 명동 위도, 경도
+            level: 4 
+        };
+        const map = new kakao.maps.Map(mapContainer, mapOption);
+        
+        // 마커 올리기
+        const markerPosition  = new kakao.maps.LatLng(37.5598, 126.9850); 
+        const marker = new kakao.maps.Marker({ position: markerPosition });
+        marker.setMap(map);
     }
 });
 
-// 4. 계좌번호 복사 기능
+// 6. 계좌번호 복사 기능
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         alert("계좌번호가 복사되었습니다.");
     }).catch(err => {
-        console.error('복사 실패:', err);
-        // 모바일 사파리 등 복사 권한 우회용 폴백(Fallback)
         const textArea = document.createElement("textarea");
         textArea.value = text;
         document.body.appendChild(textArea);
@@ -67,17 +77,34 @@ function copyToClipboard(text) {
     });
 }
 
-// 5. 카카오톡 공유하기 기능
+// 7. 내비게이션 연결 로직 3종
+function naviNaver() {
+    window.open('https://map.naver.com/v5/search/라루체명동');
+}
+
+function naviKakao() {
+    // 카카오 SDK를 활용한 카카오내비 앱 즉시 실행
+    Kakao.Navi.start({
+        name: '라루체 명동',
+        x: 126.9850,
+        y: 37.5598,
+        coordType: 'wgs84'
+    });
+}
+
+function naviTmap() {
+    window.open('https://tmap.co.kr/tmap2/mobile/route.jsp?name=라루체%20명동&lat=37.5598&lon=126.9850');
+}
+
+// 8. 카카오톡 공유하기 기능
 function shareKakao() {
-    // 하객들에게 공유될 실제 주소 (admin 파라미터가 없으므로 하객들은 공유 버튼을 못 봄)
     const shareUrl = 'https://hongseungheee.github.io/weddingv2/'; 
-    
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
             title: '홍길동 ♥ 김미래 결혼식에 초대합니다',
-            description: '2026년 5월 23일 토요일 오후 12시\n그랜드 하얏트 서울, 그랜드 볼룸',
-            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg', // 카톡 썸네일용 사진
+            description: '2026년 5월 23일 토요일 오후 12시\n라루체 명동',
+            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg',
             link: {
                 mobileWebUrl: shareUrl,
                 webUrl: shareUrl,
