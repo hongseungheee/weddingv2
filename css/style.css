@@ -115,7 +115,7 @@ section:not(.intro) { padding: 100px 30px; }
 .btn-kakaopay { background: #FEE500; color: #191919; }
 
 /* [카카오톡 공유 버튼] */
-.share-section { padding: 20px 30px 60px; }
+.share-section { padding: 20px 30px 60px; display: none; }
 .btn-kakao-share {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     width: 100%; max-width: 400px; margin: 0 auto; padding: 15px;
