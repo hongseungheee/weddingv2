@@ -59,7 +59,7 @@ function copyToClipboard(text) {
 // 5. 카카오톡 공유하기 기능
 function shareKakao() {
     // ★ 기존 주소 끝에 '?ver=1'을 붙여서 카카오톡의 악성 캐시를 강제로 뚫어줍니다.
-    const shareUrl = 'https://hongseungheee.github.io/weddingv2/?ver=1'; 
+    const shareUrl = 'https://hongseungheee.github.io/weddingv2/?ver=2'; 
     
     Kakao.Share.sendDefault({
         objectType: 'feed',
