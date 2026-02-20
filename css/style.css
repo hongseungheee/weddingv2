@@ -64,79 +64,64 @@ section:not(.intro) { padding: 100px 30px; }
 .gold-line { width: 1px; height: 60px; background-color: var(--gold); margin: 0 auto 30px; }
 .message { font-size: 0.95rem; color: #555; }
 
-/* [갤러리 - 스와이퍼 스타일] */
+/* [갤러리] */
 .gallery { padding: 100px 0; }
 .gallery-swiper { width: 100%; padding-top: 20px; padding-bottom: 50px; }
-.swiper-slide {
-    width: 75%; border-radius: 5px; overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-.swiper-slide img {
-    width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block;
-    cursor: pointer;
-}
+.swiper-slide { width: 75%; border-radius: 5px; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+.swiper-slide img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; cursor: pointer; }
 .swiper-slide:not(.swiper-slide-active) { opacity: 0.5; transition: opacity 0.3s; }
 .swiper-pagination-bullet-active { background-color: var(--gold) !important; }
 
-/* [라이트박스 팝업 스타일] */
+/* [라이트박스 팝업] */
 .lightbox {
-    display: none;
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); z-index: 9999;
     align-items: center; justify-content: center; flex-direction: column;
 }
-.lightbox.show {
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out;
-}
-.lightbox-content {
-    max-width: 95%; max-height: 85vh; object-fit: contain;
-    border-radius: 3px; box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-.lightbox-close {
-    position: absolute; top: 20px; right: 25px;
-    color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; z-index: 10000;
-}
+.lightbox.show { display: flex; animation: fadeIn 0.3s ease-in-out; }
+.lightbox-content { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 3px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+.lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; z-index: 10000; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* [계좌번호 및 송금 섹션] */
-.account-box { 
-    background: #fff; 
-    padding: 25px 20px; 
-    margin-top: 20px; 
-    border: 1px solid #eee; 
-    border-radius: 5px;
-}
+/* [계좌번호 및 송금] */
+.account-box { background: #fff; padding: 25px 20px; margin-top: 20px; border: 1px solid #eee; border-radius: 5px; }
 .account-box p { margin-bottom: 15px; font-size: 0.95rem; }
-
-/* 버튼 그룹 (가로 정렬) */
-.btn-group {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-/* 공통 버튼 디자인 */
+.btn-group { display: flex; gap: 10px; justify-content: center; }
 .account-box button { 
-    padding: 10px 18px; 
-    border: none; 
-    border-radius: 20px; 
-    cursor: pointer; 
-    font-size: 0.85rem; 
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
-    transition: transform 0.2s ease;
+    padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer; 
+    font-size: 0.85rem; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; transition: transform 0.2s ease;
 }
 .account-box button:active { transform: scale(0.95); }
-
-/* 계좌 복사 버튼 */
 .btn-copy { background: var(--gold); color: #fff; }
-
-/* 카카오페이 버튼 */
 .btn-kakaopay { background: #FEE500; color: #191919; }
 
-/* [기타 섹션] */
+/* [카카오톡 공유 섹션] */
+.share-section {
+    padding: 20px 30px 60px;
+}
+.btn-kakao-share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #FEE500;
+    color: #191919;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+.btn-kakao-share:active { transform: scale(0.98); }
+.kakao-icon { width: 20px; height: 20px; }
+
+/* [푸터] */
 .footer { padding-bottom: 50px; font-size: 0.75rem; color: #999; }
 .fade-in { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
 .fade-in.active { opacity: 1; transform: translateY(0); }
