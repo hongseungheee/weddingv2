@@ -1,4 +1,4 @@
-// ★ 중요: 방금 카카오에서 복사한 'JavaScript 키'를 아래 따옴표 사이에 넣으세요!
+// ★ 중요: 발급받은 'JavaScript 키'를 아래 따옴표 안에 넣으세요!
 Kakao.init('1acd146a3e0de1cc11ff78640d3c7a21'); 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -66,7 +66,7 @@ function shareKakao() {
         content: {
             title: '홍길동 ♥ 김미래 결혼식에 초대합니다',
             description: '2026년 5월 23일 토요일 오후 12시\n그랜드 하얏트 서울, 그랜드 볼룸',
-            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg', // 카톡 썸네일에 뜰 메인 사진
+            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg', // 카톡 썸네일용 사진
             link: {
                 mobileWebUrl: shareUrl,
                 webUrl: shareUrl,
