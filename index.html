@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1acd146a3e0de1cc11ff78640d3c7a21"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1acd146a3e0de1cc11ff78640d3c7a21"></script>
 </head>
 <body>
     <section class="intro">
@@ -31,7 +31,7 @@
             
             <div class="intro-details fade-in-delayed">
                 <p class="main-date">2026. 05. 23. SAT PM 12:00</p>
-                <p class="main-location">라루체 명동</p>
+                <p class="main-location">명동라루체 웨딩홀</p>
             </div>
         </div>
     </section>
@@ -61,15 +61,24 @@
 
     <section class="location fade-in">
         <h3 class="serif">오시는 길</h3>
-        <p class="venue-name">라루체 명동</p>
-        <p class="venue-address">서울 중구 퇴계로18길 46</p>
+        <p class="venue-name">명동라루체 웨딩홀</p>
+        <p class="venue-address">서울특별시 중구 남산동1가 13-6</p>
         
         <div id="map" class="map-container"></div>
         
         <div class="navi-buttons">
-            <button onclick="naviNaver()" class="btn-naver">네이버 지도</button>
-            <button onclick="naviKakao()" class="btn-kakao-navi">카카오내비</button>
-            <button onclick="naviTmap()" class="btn-tmap">티맵 (Tmap)</button>
+            <button onclick="naviNaver()" class="btn-naver">
+                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#ffffff" d="M16.27 4.15v15.7h-4.94L6.11 9.42v10.43H1.47V4.15h4.94l5.22 10.43V4.15h4.64z"/></svg>
+                네이버 지도
+            </button>
+            <button onclick="naviKakao()" class="btn-kakao-navi">
+                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#191919" d="M12 3c-5.52 0-10 3.49-10 7.8 0 2.76 1.76 5.17 4.41 6.47-.16.61-.59 2.22-.64 2.44-.06.26.09.26.2.19.08-.05 2.51-1.68 3.54-2.39 8.01 1.05 12.49-4.82 12.49-6.71C22 6.49 17.52 3 12 3z"/></svg>
+                카카오내비
+            </button>
+            <button onclick="naviTmap()" class="btn-tmap">
+                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#ffffff" d="M9.5 7.5h5v9h2.5v-9h5v-2.5h-12.5v2.5zM4.5 7.5h2.5v9h-2.5v-9z"/></svg>
+                티맵 (Tmap)
+            </button>
         </div>
 
         <div class="transport-info">

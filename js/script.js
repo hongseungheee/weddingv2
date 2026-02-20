@@ -1,5 +1,14 @@
-// 카카오 디벨로퍼스 JavaScript 키 연동
-Kakao.init('1acd146a3e0de1cc11ff78640d3c7a21'); 
+// ==========================================
+// ★ [지도 위치 설정 영역]
+const VENUE_LAT = 37.559111; // 위도
+const VENUE_LNG = 126.984459; // 경도
+const VENUE_NAME = '명동라루체 웨딩홀';
+
+// 카카오 디벨로퍼스 JavaScript 키
+const KAKAO_APP_KEY = '1acd146a3e0de1cc11ff78640d3c7a21'; 
+// ==========================================
+
+Kakao.init(KAKAO_APP_KEY); 
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -46,17 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (shareSection) { shareSection.style.display = 'block'; }
     }
 
-    // 5. 카카오맵 API 초기화 및 그리기 (라루체 명동 좌표)
+    // 5. 카카오맵 API 초기화 및 그리기 (설정 영역의 변수 사용)
     if (window.kakao && kakao.maps) {
         const mapContainer = document.getElementById('map'); 
         const mapOption = { 
-            center: new kakao.maps.LatLng(37.5598, 126.9850), // 라루체 명동 위도, 경도
+            center: new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG), 
             level: 4 
         };
         const map = new kakao.maps.Map(mapContainer, mapOption);
         
         // 마커 올리기
-        const markerPosition  = new kakao.maps.LatLng(37.5598, 126.9850); 
+        const markerPosition  = new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG); 
         const marker = new kakao.maps.Marker({ position: markerPosition });
         marker.setMap(map);
     }
@@ -77,23 +86,22 @@ function copyToClipboard(text) {
     });
 }
 
-// 7. 내비게이션 연결 로직 3종
+// 7. 내비게이션 연결 로직 3종 (설정 영역의 변수 사용)
 function naviNaver() {
-    window.open('https://map.naver.com/v5/search/라루체명동');
+    window.open(`https://map.naver.com/v5/search/${encodeURIComponent(VENUE_NAME)}`);
 }
 
 function naviKakao() {
-    // 카카오 SDK를 활용한 카카오내비 앱 즉시 실행
     Kakao.Navi.start({
-        name: '라루체 명동',
-        x: 126.9850,
-        y: 37.5598,
+        name: VENUE_NAME,
+        x: VENUE_LNG, // 카카오내비는 x가 경도입니다
+        y: VENUE_LAT, // y가 위도입니다
         coordType: 'wgs84'
     });
 }
 
 function naviTmap() {
-    window.open('https://tmap.co.kr/tmap2/mobile/route.jsp?name=라루체%20명동&lat=37.5598&lon=126.9850');
+    window.open(`https://tmap.co.kr/tmap2/mobile/route.jsp?name=${encodeURIComponent(VENUE_NAME)}&lat=${VENUE_LAT}&lon=${VENUE_LNG}`);
 }
 
 // 8. 카카오톡 공유하기 기능
@@ -103,7 +111,7 @@ function shareKakao() {
         objectType: 'feed',
         content: {
             title: '홍길동 ♥ 김미래 결혼식에 초대합니다',
-            description: '2026년 5월 23일 토요일 오후 12시\n라루체 명동',
+            description: '2026년 5월 23일 토요일 오후 12시\n' + VENUE_NAME,
             imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg',
             link: {
                 mobileWebUrl: shareUrl,
