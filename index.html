@@ -22,7 +22,7 @@
         </div>
         
         <div class="intro-content">
-            <h1 class="main-names handwriting reveal-text">Wedding Day</h1>
+            <h1 class="main-names handwriting">Wedding Day</h1>
             
             <div class="intro-details fade-in-delayed">
                 <p class="main-date">2026. 05. 23. SAT PM 12:00</p>
@@ -56,9 +56,21 @@
 
     <section class="account fade-in">
         <h3 class="serif">마음 전하실 곳</h3>
+        
         <div class="account-box">
             <p>신랑측 계좌번호 (신한 110-123-456789)</p>
-            <button onclick="copyToClipboard('110123456789')">계좌 복사하기</button>
+            <div class="btn-group">
+                <button class="btn-copy" onclick="copyToClipboard('110123456789')">계좌 복사</button>
+                <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+            </div>
+        </div>
+
+        <div class="account-box">
+            <p>신부측 계좌번호 (국민 987-654-321098)</p>
+            <div class="btn-group">
+                <button class="btn-copy" onclick="copyToClipboard('987654321098')">계좌 복사</button>
+                <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+            </div>
         </div>
     </section>
 
