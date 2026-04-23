@@ -12,31 +12,58 @@ Kakao.init(KAKAO_APP_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. 갤러리 스와이퍼(슬라이드) 초기화
-    const swiper = new Swiper('.gallery-swiper', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflowEffect: { rotate: 0, stretch: -20, depth: 100, modifier: 1, slideShadows: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        loop: true
-    });
-
     // 2. 라이트박스 로직
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const galleryContainer = document.querySelector('.gallery-swiper');
+    const lightboxWrapper = document.getElementById('lightbox-wrapper');
+    const galleryItems = document.querySelectorAll('.grid-item img');
+    let lightboxSwiper = null;
 
-    galleryContainer.addEventListener('click', (e) => {
+    // 라이트박스 스와이퍼 초기화 함수
+    function initLightboxSwiper() {
+        if (!lightboxSwiper) {
+            lightboxSwiper = new Swiper('.lightbox-swiper', {
+                loop: true,
+                speed: 400,
+                spaceBetween: 20,
+                keyboard: { enabled: true },
+            });
+        }
+    }
+
+    // 갤러리 클릭 시 라이트박스 열기
+    document.querySelector('.grid-gallery').addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG') {
-            lightboxImg.src = e.target.src;
+            const allImages = Array.from(galleryItems).map(img => img.src);
+            const clickedIdx = Array.from(galleryItems).indexOf(e.target);
+
+            // 슬라이드 동적 생성
+            lightboxWrapper.innerHTML = allImages.map(src => `
+                <div class="swiper-slide">
+                    <img src="${src}" alt="갤러리 사진">
+                </div>
+            `).join('');
+
             lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden'; // 스크롤 방지
+
+            initLightboxSwiper();
+            lightboxSwiper.update();
+            lightboxSwiper.slideToLoop(clickedIdx, 0);
         }
     });
 
+    // 라이트박스 닫기
+    const closeBtn = document.querySelector('.lightbox-close');
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+
     lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg) { lightbox.classList.remove('show'); }
+        if (e.target === lightbox || e.target.classList.contains('swiper-slide')) {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
     });
 
     // 3. 스크롤 애니메이션
@@ -104,28 +131,28 @@ function naviTmap() {
     window.open(`https://tmap.co.kr/tmap2/mobile/route.jsp?name=${encodeURIComponent(VENUE_NAME)}&lat=${VENUE_LAT}&lon=${VENUE_LNG}`);
 }
 
-// 8. 카카오톡 공유하기 기능
-function shareKakao() {
-    const shareUrl = 'https://hongseungheee.github.io/weddingv2/'; 
-    Kakao.Share.sendDefault({
-        objectType: 'feed',
-        content: {
-            title: '홍길동 ♥ 김미래 결혼식에 초대합니다',
-            description: '2026년 5월 23일 토요일 오후 12시\n' + VENUE_NAME,
-            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/1.jpeg',
-            link: {
-                mobileWebUrl: shareUrl,
-                webUrl: shareUrl,
-            },
-        },
-        buttons: [
-            {
-                title: '청첩장 열어보기',
+    // 8. 카카오톡 공유하기 기능
+    function shareKakao() {
+        const shareUrl = 'https://hongseungheee.github.io/weddingv2/'; 
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: '이민희 ♥ 홍승희 결혼식에 초대합니다',
+                description: '2026년 6월 6일 토요일 오후 1시 30분\n' + VENUE_NAME,
+                imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/main.jpg',
                 link: {
                     mobileWebUrl: shareUrl,
                     webUrl: shareUrl,
                 },
             },
-        ],
-    });
-}
+            buttons: [
+                {
+                    title: '청첩장 열어보기',
+                    link: {
+                        mobileWebUrl: shareUrl,
+                        webUrl: shareUrl,
+                    },
+                },
+            ],
+        });
+    }
