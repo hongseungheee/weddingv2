@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta property="og:title" content="홍길동 ♥ 김미래 결혼식에 초대합니다">
-    <meta property="og:description" content="2026년 5월 23일 토요일 오후 12시">
-    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/1.jpeg">
-    
+
+    <meta property="og:title" content="이민희 ♥ 홍승희 결혼식에 초대합니다">
+    <meta property="og:description" content="2026년 6월 6일 토요일 오후 1시 30분">
+    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/main.jpg">
+
     <title>우리의 결혼식에 초대합니다</title>
-    
+
     <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;1,500&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;1,500&family=Noto+Sans+KR:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1acd146a3e0de1cc11ff78640d3c7a21"></script>
+    <script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1acd146a3e0de1cc11ff78640d3c7a21"></script>
 </head>
+
 <body>
     <section class="intro">
         <div class="main-photo">
-            <img src="./assets/4.jpeg" alt="메인 사진">
+            <img src="./assets/main.jpg" alt="메인 사진">
             <div class="overlay"></div>
         </div>
-        
+
         <div class="intro-content">
             <svg class="wedding-svg" viewBox="0 0 400 100">
                 <text x="50%" y="60%" text-anchor="middle" class="svg-text">Wedding Day</text>
             </svg>
-            
+
             <div class="intro-details fade-in-delayed">
-                <p class="main-date">2026. 05. 23. SAT PM 12:00</p>
-                <p class="main-location">명동라루체 웨딩홀</p>
+                <p class="main-date">2026. 06. 06. SAT PM 1:30</p>
+                <p class="main-location">명동 라루체 웨딩</p>
             </div>
         </div>
     </section>
@@ -40,43 +45,62 @@
         <div class="gold-line"></div>
         <h2 class="serif">INVITATION</h2>
         <p class="message">
-            함께 맞는 여덟 번째 봄,<br>
-            서로의 따스함이 되어주려 합니다.<br>
-            저희의 시작을 축복해 주세요.
+            서로를 아끼고 존중하는 마음으로<br>
+            이제는 평생의 동반자가 되려 합니다.<br>
+            저희 두 사람이 하나 되어 딛는 소중한 첫걸음,<br>
+            오셔서 따뜻한 마음으로 축복해 주시면 감사하겠습니다.
         </p>
     </section>
 
     <section class="gallery fade-in">
         <h3 class="serif gold-text">GALLERY</h3>
-        <div class="swiper gallery-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="./assets/2.jpeg" alt="사진1"></div>
-                <div class="swiper-slide"><img src="./assets/3.jpeg" alt="사진2"></div>
-                <div class="swiper-slide"><img src="./assets/1.jpeg" alt="사진3"></div>
-                <div class="swiper-slide"><img src="./assets/5.jpeg" alt="사진4"></div>
-            </div>
-            <div class="swiper-pagination"></div>
+        <div class="grid-gallery">
+            <!-- 가로 -->
+            <div class="grid-item horizontal"><img src="./assets/gallery6.jpg" alt="사진6"></div>
+
+            <!-- 세로 2개 -->
+            <div class="grid-item vertical"><img src="./assets/gallery1.jpg" alt="사진1"></div>
+            <div class="grid-item vertical"><img src="./assets/gallery2.jpg" alt="사진2"></div>
+
+            <!-- 세로 2개 -->
+            <div class="grid-item vertical"><img src="./assets/gallery3.jpg" alt="사진3"></div>
+            <div class="grid-item vertical"><img src="./assets/gallery4.jpg" alt="사진4"></div>
+
+            <!-- 가로 -->
+            <div class="grid-item horizontal"><img src="./assets/gallery9.jpg" alt="사진9"></div>
+
+            <!-- 남은 세로 사진들 -->
+            <div class="grid-item vertical"><img src="./assets/gallery5.jpg" alt="사진5"></div>
+            <div class="grid-item vertical"><img src="./assets/gallery7.jpg" alt="사진7"></div>
         </div>
     </section>
 
     <section class="location fade-in">
         <h3 class="serif">오시는 길</h3>
-        <p class="venue-name">명동라루체 웨딩홀</p>
+        <p class="venue-name">명동 라루체 웨딩</p>
         <p class="venue-address">서울특별시 중구 남산동1가 13-6</p>
-        
+
         <div id="map" class="map-container"></div>
-        
+
         <div class="navi-buttons">
             <button onclick="naviNaver()" class="btn-naver">
-                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#ffffff" d="M16.27 4.15v15.7h-4.94L6.11 9.42v10.43H1.47V4.15h4.94l5.22 10.43V4.15h4.64z"/></svg>
+                <svg class="navi-icon" viewBox="0 0 24 24">
+                    <path fill="#ffffff"
+                        d="M16.27 4.15v15.7h-4.94L6.11 9.42v10.43H1.47V4.15h4.94l5.22 10.43V4.15h4.64z" />
+                </svg>
                 네이버 지도
             </button>
             <button onclick="naviKakao()" class="btn-kakao-navi">
-                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#191919" d="M12 3c-5.52 0-10 3.49-10 7.8 0 2.76 1.76 5.17 4.41 6.47-.16.61-.59 2.22-.64 2.44-.06.26.09.26.2.19.08-.05 2.51-1.68 3.54-2.39 8.01 1.05 12.49-4.82 12.49-6.71C22 6.49 17.52 3 12 3z"/></svg>
+                <svg class="navi-icon" viewBox="0 0 24 24">
+                    <path fill="#191919"
+                        d="M12 3c-5.52 0-10 3.49-10 7.8 0 2.76 1.76 5.17 4.41 6.47-.16.61-.59 2.22-.64 2.44-.06.26.09.26.2.19.08-.05 2.51-1.68 3.54-2.39 8.01 1.05 12.49-4.82 12.49-6.71C22 6.49 17.52 3 12 3z" />
+                </svg>
                 카카오내비
             </button>
             <button onclick="naviTmap()" class="btn-tmap">
-                <svg class="navi-icon" viewBox="0 0 24 24"><path fill="#ffffff" d="M9.5 7.5h5v9h2.5v-9h5v-2.5h-12.5v2.5zM4.5 7.5h2.5v9h-2.5v-9z"/></svg>
+                <svg class="navi-icon" viewBox="0 0 24 24">
+                    <path fill="#ffffff" d="M9.5 7.5h5v9h2.5v-9h5v-2.5h-12.5v2.5zM4.5 7.5h2.5v9h-2.5v-9z" />
+                </svg>
                 티맵 (Tmap)
             </button>
         </div>
@@ -90,48 +114,90 @@
                 <h4>버스 안내</h4>
                 <p>간선: 104, 105, 421, 463, 507, 604<br>지선: 7011 (퇴계로2가.명동역 하차)</p>
             </div>
-            <div class="info-item">
-                <h4>주차 안내</h4>
-                <p>라루체 전용 주차장 (500대 동시 주차 가능)<br>하객 2시간 무료 (만차 시 인근 주차장 안내)</p>
-            </div>
+
         </div>
     </section>
 
     <section class="account fade-in">
         <h3 class="serif">마음 전하실 곳</h3>
+        <p class="wreath-notice">축하 화환은 정중히 사양합니다.<br>따뜻한 마음만 감사히 받겠습니다.</p>
         <div class="account-box">
-            <p>신랑측 계좌번호 (신한 110-123-456789)</p>
-            <div class="btn-group">
-                <button class="btn-copy" onclick="copyToClipboard('110123456789')">계좌 복사</button>
-                <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/여기에_신랑_링크_입력')">카카오페이</button>
+            <h4 class="account-title">신랑측</h4>
+            <div class="account-list">
+                <div class="account-item">
+                    <p>신한은행 110-283-128424 (이민희)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('110283128424')">복사</button>
+                        <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/')">카카오페이</button>
+                    </div>
+                </div>
+                <div class="account-item">
+                    <p>국민은행 012-211-168209 (이재춘)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('012211168209')">복사</button>
+                    </div>
+                </div>
+                <div class="account-item">
+                    <p>신한은행 110-170-170994 (임순화)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('110170170994')">복사</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="account-box">
-            <p>신부측 계좌번호 (국민 987-654-321098)</p>
-            <div class="btn-group">
-                <button class="btn-copy" onclick="copyToClipboard('987654321098')">계좌 복사</button>
-                <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+            <h4 class="account-title">신부측</h4>
+            <div class="account-list">
+                <div class="account-item">
+                    <p>국민은행 035801-04-157208 (홍승희)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('03580104157208')">복사</button>
+                        <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+                    </div>
+                </div>
+                <div class="account-item">
+                    <p>국민은행 088202-04-189530 (홍기현)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('08820204189530')">복사</button>
+                    </div>
+                </div>
+                <div class="account-item">
+                    <p>농협은행 301-0328-4669-81 (안성례)</p>
+                    <div class="btn-group">
+                        <button class="btn-copy" onclick="copyToClipboard('3010328466981')">복사</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="share-section fade-in">
         <button class="btn-kakao-share" onclick="shareKakao()">
-            <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_small.png" alt="카카오톡 아이콘" class="kakao-icon">
+            <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_small.png"
+                alt="카카오톡 아이콘" class="kakao-icon">
             카카오톡으로 청첩장 공유하기
         </button>
     </section>
 
     <footer class="footer">
-        <p>© 2026 Gil Dong & Mi Rae. All Rights Reserved.</p>
+        <p>© 2026 Min Hee & Seung Hee. All Rights Reserved.</p>
     </footer>
 
     <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-close">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <div class="swiper lightbox-swiper">
+            <div class="swiper-wrapper" id="lightbox-wrapper">
+                <!-- Slides will be injected by JS -->
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
