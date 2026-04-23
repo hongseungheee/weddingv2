@@ -25,6 +25,13 @@ body {
     overflow-x: hidden;
 }
 
+/* 모바일 자동 링크 스타일 제거 */
+a[href^="tel"], a[href^="mailto"], a[href^="sms"] {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+
 section:not(.intro) {
     padding: 120px 20px;
 }
