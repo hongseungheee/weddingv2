@@ -1,115 +1,491 @@
 :root {
-    --bg-color: #fcfaf7;
-    --text-color: #333333;
-    --gold: #c5a371;
+    --gold: #b0926a;
+    --gold-light: #e0d5c1;
+    --bg-cream: #fdfcfb;
     --white: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --text-light: #999999;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
     font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
     line-height: 2;
     text-align: center;
     overflow-x: hidden;
 }
 
-section:not(.intro) { padding: 100px 30px; }
-.serif { font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 2px; }
+section:not(.intro) {
+    padding: 120px 20px;
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+
+
 
 /* [메인 인트로] */
-.intro { position: relative; width: 100%; height: 100vh; padding: 0; overflow: hidden; }
-.main-photo, .main-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); }
+.intro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main-photo,
+.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
 
 .intro-content {
-    position: absolute; top: 15%; left: 50%; transform: translateX(-50%);
-    width: 100%; color: var(--white); z-index: 10;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    color: var(--white);
+    z-index: 10;
 }
 
 /* [SVG 진짜 손글씨 그리기 효과] */
-.wedding-svg { width: 100%; height: 100px; margin-bottom: 10px; overflow: visible; }
-.svg-text {
-    font-family: 'Parisienne', cursive; font-size: 4rem; font-weight: 400;
-    fill: transparent; stroke: var(--gold); stroke-width: 1.2px;
-    stroke-dasharray: 1000; stroke-dashoffset: 1000;
-    animation: drawStroke 2.5s ease-in-out forwards, fillColor 1s ease-in-out 2s forwards; 
+.wedding-svg {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    overflow: visible;
 }
-@keyframes drawStroke { to { stroke-dashoffset: 0; } }
-@keyframes fillColor { to { fill: var(--gold); stroke-width: 0; } }
+
+.svg-text {
+    font-family: 'Parisienne', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    fill: transparent;
+    stroke: var(--gold);
+    stroke-width: 1.2px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawStroke 2.5s ease-in-out forwards, fillColor 1s ease-in-out 2s forwards;
+}
+
+@keyframes drawStroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillColor {
+    to {
+        fill: var(--gold);
+        stroke-width: 0;
+    }
+}
 
 .intro-details.fade-in-delayed {
-    opacity: 0; transform: translateY(15px);
-    animation: fadeUp 1.5s ease-out forwards; animation-delay: 2.2s; 
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeUp 1.5s ease-out forwards;
+    animation-delay: 2.2s;
 }
-@keyframes fadeUp { to { opacity: 0.9; transform: translateY(0); } }
 
-.main-date { font-size: 1rem; font-weight: 300; letter-spacing: 2px; }
-.main-location { font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); margin-top: 5px; }
-.gold-line { width: 1px; height: 60px; background-color: var(--gold); margin: 0 auto 30px; }
-.message { font-size: 0.95rem; color: #555; }
+@keyframes fadeUp {
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
 
-/* [갤러리] */
-.gallery { padding: 100px 0; }
-.gallery-swiper { width: 100%; padding-top: 20px; padding-bottom: 50px; }
-.swiper-slide { width: 75%; border-radius: 5px; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
-.swiper-slide img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; cursor: pointer; }
-.swiper-slide:not(.swiper-slide-active) { opacity: 0.5; transition: opacity 0.3s; }
-.swiper-pagination-bullet-active { background-color: var(--gold) !important; }
+.main-date {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.main-location {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+}
+
+.gold-line {
+    width: 30px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 0 auto 40px;
+}
+
+.message {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 2.4;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+
+
+/* [갤러리 (그리드 방식)] */
+.gallery {
+    padding: 100px 20px;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.grid-item {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.grid-item.horizontal {
+    grid-column: span 2;
+}
+
+.grid-item.horizontal img {
+    /* aspect-ratio 제거로 원본 비율 그대로 전체가 나오게 함 */
+}
+
+.grid-item.vertical img {
+    aspect-ratio: 3 / 4;
+}
+
 
 /* [라이트박스 팝업] */
 .lightbox {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
 }
-.lightbox.show { display: flex; animation: fadeIn 0.3s ease-in-out; }
-.lightbox-content { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 3px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-.lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; z-index: 10000; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.lightbox-swiper img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    transition: all 0.2s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.lightbox-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 /* [오시는 길 및 지도] */
-.location { padding: 100px 20px; background-color: #fff; }
-.venue-name { font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #222; }
-.venue-address { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
-.map-container { width: 100%; height: 250px; background-color: #eee; border-radius: 5px; margin-bottom: 20px; }
+.location {
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
+.venue-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.venue-address {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    width: 100%;
+    height: 250px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
 /* 내비게이션 버튼 3종 (SVG 아이콘 정렬) */
-.navi-buttons { display: flex; gap: 8px; justify-content: center; margin-bottom: 40px; }
-.navi-buttons button { 
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    flex: 1; padding: 10px 0; border: none; border-radius: 5px; font-size: 0.85rem; font-weight: bold; cursor: pointer; transition: 0.2s; color: #fff;
+.navi-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
 }
-.navi-icon { width: 14px; height: 14px; }
-.btn-naver { background-color: #03C75A; }
-.btn-kakao-navi { background-color: #FEE500; color: #191919 !important; }
-.btn-tmap { background-color: #000000; }
-.navi-buttons button:active { transform: scale(0.95); }
+
+.navi-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fff;
+}
+
+.navi-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.btn-naver {
+    background-color: #03C75A;
+}
+
+.btn-kakao-navi {
+    background-color: #FEE500;
+    color: #191919 !important;
+}
+
+.btn-tmap {
+    background-color: #000000;
+}
+
+.navi-buttons button:active {
+    transform: scale(0.95);
+}
 
 /* 교통 수단 안내 */
-.transport-info { text-align: left; background-color: #f9f9f9; padding: 25px; border-radius: 5px; }
-.info-item { margin-bottom: 20px; }
-.info-item:last-child { margin-bottom: 0; }
-.info-item h4 { font-size: 0.95rem; color: var(--gold); margin-bottom: 5px; }
-.info-item p { font-size: 0.85rem; color: #555; line-height: 1.6; }
+.transport-info {
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item h4 {
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+}
 
 /* [계좌번호 및 송금] */
-.account-box { background: #fff; padding: 25px 20px; margin-top: 20px; border: 1px solid #eee; border-radius: 5px; }
-.account-box p { margin-bottom: 15px; font-size: 0.95rem; }
-.btn-group { display: flex; gap: 10px; justify-content: center; }
-.account-box button { padding: 10px 18px; border: none; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; transition: transform 0.2s ease;}
-.account-box button:active { transform: scale(0.95); }
-.btn-copy { background: var(--gold); color: #fff; }
-.btn-kakaopay { background: #FEE500; color: #191919; }
+.account-box {
+    background: #fff;
+    padding: 40px 20px;
+    margin-top: 30px;
+    border: 1px solid #f2f2f2;
+    border-radius: 0; /* 클래식한 느낌을 위해 라운드 제거 */
+}
+
+.account-title {
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 35px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+.account-item {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.account-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.account-item p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.account-box button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.btn-copy {
+    background: var(--bg-cream);
+    color: var(--text-gray);
+    border: 1px solid #eee !important;
+}
+
+.btn-copy:hover {
+    background: #eee;
+}
+
+.btn-kakaopay {
+    background: #FEE500;
+    color: #191919;
+}
+
 
 /* [카카오톡 공유 버튼 - 관리자 숨김 처리] */
-.share-section { padding: 20px 30px 60px; display: none; }
-.btn-kakao-share { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 400px; margin: 0 auto; padding: 15px; background-color: #FEE500; color: #191919; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease;}
-.btn-kakao-share:active { transform: scale(0.98); }
-.kakao-icon { width: 20px; height: 20px; }
+.share-section {
+    padding: 20px 30px 60px;
+    display: none;
+}
+
+.btn-kakao-share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #FEE500;
+    color: #191919;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.btn-kakao-share:active {
+    transform: scale(0.98);
+}
+
+.kakao-icon {
+    width: 20px;
+    height: 20px;
+}
 
 /* [푸터 및 애니메이션] */
-.footer { padding-bottom: 50px; font-size: 0.75rem; color: #999; }
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
-.fade-in.active { opacity: 1; transform: translateY(0); }
+.footer {
+    padding-bottom: 50px;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
