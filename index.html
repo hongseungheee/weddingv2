@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
 
     <meta property="og:title" content="이민희 ♥ 홍승희 결혼식에 초대합니다">
     <meta property="og:description" content="2026년 6월 6일 토요일 오후 1시 30분">
-    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/main.jpg">
+    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/mainphoto.jpg">
 
     <title>우리의 결혼식에 초대합니다</title>
 
@@ -25,7 +26,8 @@
 <body>
     <section class="intro">
         <div class="main-photo">
-            <img src="./assets/main.jpg" alt="메인 사진">
+            <img src="./assets/mainphoto.jpg" alt="메인 사진">
+            <div class="overlay"></div>
         </div>
 
         <div class="intro-content">
@@ -51,27 +53,75 @@
         </p>
     </section>
 
-    <section class="gallery fade-in">
-        <h3 class="serif gold-text">GALLERY</h3>
-        <div class="grid-gallery">
-            <!-- 가로 -->
-            <div class="grid-item horizontal"><img src="./assets/gallery6.jpg" alt="사진6"></div>
-
-            <!-- 세로 2개 -->
-            <div class="grid-item vertical"><img src="./assets/gallery1.jpg" alt="사진1"></div>
-            <div class="grid-item vertical"><img src="./assets/gallery2.jpg" alt="사진2"></div>
-
-            <!-- 세로 2개 -->
-            <div class="grid-item vertical"><img src="./assets/gallery3.jpg" alt="사진3"></div>
-            <div class="grid-item vertical"><img src="./assets/gallery4.jpg" alt="사진4"></div>
-
-            <!-- 가로 -->
-            <div class="grid-item horizontal"><img src="./assets/gallery9.jpg" alt="사진9"></div>
-
-            <!-- 남은 세로 사진들 -->
-            <div class="grid-item vertical"><img src="./assets/gallery5.jpg" alt="사진5"></div>
-            <div class="grid-item vertical"><img src="./assets/gallery7.jpg" alt="사진7"></div>
+    <section class="calendar-section fade-in">
+        <h3 class="serif gold-text">JUNE 2026</h3>
+        <p class="calendar-subtitle">6월 6일 토요일 오후 1시 30분</p>
+        <div class="calendar-wrap">
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th class="sun">S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="sun"></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>
+                            <div class="d-day">6</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sun">7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td class="sun">14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td class="sun">21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                        <td>26</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td class="sun">28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <p class="d-day-text" id="d-day-container">이민희 <span class="heart">♥</span> 홍승희의 결혼식이 <b id="d-day-count"></b>일
+            남았습니다.</p>
     </section>
 
     <section class="location fade-in">
@@ -84,21 +134,21 @@
         <div class="navi-buttons">
             <button onclick="naviNaver()" class="btn-naver">
                 <svg class="navi-icon" viewBox="0 0 24 24">
-                    <path fill="#ffffff"
+                    <path fill="currentColor"
                         d="M16.27 4.15v15.7h-4.94L6.11 9.42v10.43H1.47V4.15h4.94l5.22 10.43V4.15h4.64z" />
                 </svg>
                 네이버 지도
             </button>
             <button onclick="naviKakao()" class="btn-kakao-navi">
                 <svg class="navi-icon" viewBox="0 0 24 24">
-                    <path fill="#191919"
+                    <path fill="currentColor"
                         d="M12 3c-5.52 0-10 3.49-10 7.8 0 2.76 1.76 5.17 4.41 6.47-.16.61-.59 2.22-.64 2.44-.06.26.09.26.2.19.08-.05 2.51-1.68 3.54-2.39 8.01 1.05 12.49-4.82 12.49-6.71C22 6.49 17.52 3 12 3z" />
                 </svg>
                 카카오내비
             </button>
             <button onclick="naviTmap()" class="btn-tmap">
                 <svg class="navi-icon" viewBox="0 0 24 24">
-                    <path fill="#ffffff" d="M9.5 7.5h5v9h2.5v-9h5v-2.5h-12.5v2.5zM4.5 7.5h2.5v9h-2.5v-9z" />
+                    <path fill="currentColor" d="M9.5 7.5h5v9h2.5v-9h5v-2.5h-12.5v2.5zM4.5 7.5h2.5v9h-2.5v-9z" />
                 </svg>
                 티맵 (Tmap)
             </button>
@@ -117,53 +167,86 @@
         </div>
     </section>
 
+    <section class="gallery">
+        <h3 class="serif gold-text fade-in">GALLERY</h3>
+        <div class="grid-gallery">
+            <!-- 가로 -->
+            <div class="grid-item horizontal fade-in stagger-item"><img src="./assets/gallery6.jpg" alt="사진6"></div>
+
+            <!-- 세로 2개 -->
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery1.jpg" alt="사진1"></div>
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery2.jpg" alt="사진2"></div>
+
+            <!-- 세로 2개 -->
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery3.jpg" alt="사진3"></div>
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery4.jpg" alt="사진4"></div>
+
+            <!-- 가로 -->
+            <div class="grid-item horizontal fade-in stagger-item"><img src="./assets/gallery9.jpg" alt="사진9"></div>
+
+            <!-- 남은 세로 사진들 -->
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery5.jpg" alt="사진5"></div>
+            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery7.jpg" alt="사진7"></div>
+        </div>
+    </section>
+
     <section class="account fade-in">
         <h3 class="serif">마음 전하실 곳</h3>
-        <p class="wreath-notice">축하 화환은 정중히 사양합니다.<br>따뜻한 마음만 감사히 받겠습니다.</p>
-        <div class="account-box">
-            <h4 class="account-title">신랑측</h4>
-            <div class="account-list">
-                <div class="account-item">
-                    <p>신한은행 110-283-128424 (이민희)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('110283128424')">복사</button>
-                        <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/')">카카오페이</button>
+        <p class="wreath-notice">
+            참석이 어려우신 분들을 위해<br>계좌번호를 기재하였습니다.<br>너그러운 마음으로 양해 부탁드립니다.
+        </p>
+
+        <div class="account-container">
+            <!-- 신랑측 -->
+            <div class="account-box">
+                <h4 class="account-title">신랑측 계좌번호</h4>
+                <div class="account-list">
+                    <div class="account-item">
+                        <p>신한은행 110-283-128424 이민희</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('110283128424')">복사</button>
+                            <button class="btn-kakaopay"
+                                onclick="window.open('https://qr.kakaopay.com/')">카카오페이</button>
+                        </div>
                     </div>
-                </div>
-                <div class="account-item">
-                    <p>국민은행 012-211-168209 (이재춘)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('012211168209')">복사</button>
+                    <div class="account-item">
+                        <p>국민은행 012-211-168209 이재춘</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('012211168209')">복사</button>
+                        </div>
                     </div>
-                </div>
-                <div class="account-item">
-                    <p>신한은행 110-170-170994 (임순화)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('110170170994')">복사</button>
+                    <div class="account-item">
+                        <p>신한은행 110-170-170994 임순화</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('110170170994')">복사</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="account-box">
-            <h4 class="account-title">신부측</h4>
-            <div class="account-list">
-                <div class="account-item">
-                    <p>국민은행 035801-04-157208 (홍승희)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('03580104157208')">복사</button>
-                        <button class="btn-kakaopay" onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+
+            <!-- 신부측 -->
+            <div class="account-box">
+                <h4 class="account-title">신부측 계좌번호</h4>
+                <div class="account-list">
+                    <div class="account-item">
+                        <p>국민은행 035801-04-157208 홍승희</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('03580104157208')">복사</button>
+                            <button class="btn-kakaopay"
+                                onclick="window.open('https://qr.kakaopay.com/FZKmTHa2M')">카카오페이</button>
+                        </div>
                     </div>
-                </div>
-                <div class="account-item">
-                    <p>국민은행 088202-04-189530 (홍기현)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('08820204189530')">복사</button>
+                    <div class="account-item">
+                        <p>국민은행 088202-04-189530 홍기현</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('08820204189530')">복사</button>
+                        </div>
                     </div>
-                </div>
-                <div class="account-item">
-                    <p>농협은행 301-0328-4669-81 (안성례)</p>
-                    <div class="btn-group">
-                        <button class="btn-copy" onclick="copyToClipboard('3010328466981')">복사</button>
+                    <div class="account-item">
+                        <p>농협은행 301-0328-4669-81 안성례</p>
+                        <div class="btn-group">
+                            <button class="btn-copy" onclick="copyToClipboard('3010328466981')">복사</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,13 +268,16 @@
     <div id="lightbox" class="lightbox">
         <div class="lightbox-close">
             <svg viewBox="0 0 24 24">
-                <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path fill="currentColor"
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
             </svg>
         </div>
         <div class="swiper lightbox-swiper">
             <div class="swiper-wrapper" id="lightbox-wrapper">
                 <!-- Slides will be injected by JS -->
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
