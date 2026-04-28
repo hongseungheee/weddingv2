@@ -167,18 +167,22 @@
         </div>
     </section>
 
-    <section class="gallery">
+    <section class="gallery gallery-expanded">
         <div class="gallery-header fade-in">
             <h3 class="serif gold-text">GALLERY</h3>
             <button id="gallery-toggle" class="gallery-toggle-btn">
-                <span class="toggle-text">더보기</span>
+                <span class="toggle-text">접기</span>
                 <svg class="toggle-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
             </button>
         </div>
-        <div id="grid-gallery" class="grid-gallery collapsed">
+        <div id="grid-gallery" class="grid-gallery expanded">
+            <!-- JM_01112 (요청: 갤러리 첫 번째) -->
+            <div class="grid-item horizontal fade-in"><img src="./assets/gallery-jm-01112.png" alt="웨딩 사진"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/gallery-jm-02170.png" alt="웨딩 사진"></div>
             <!-- 1. 세로 사진으로 가볍게 시작 -->
             <div class="grid-item vertical fade-in"><img src="./assets/wedding2.jpg" alt="사진2"></div>
             <div class="grid-item vertical fade-in"><img src="./assets/wedding3.jpg" alt="사진3"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding13.jpg" alt="사진13"></div>
             
             <!-- 2. 큰 사진 첫 번째 분산 (15번) -->
             <div class="grid-item horizontal fade-in"><img src="./assets/wedding15.jpg" alt="사진15"></div>
@@ -205,8 +209,6 @@
             <!-- 8. 마무리 세로 화보 -->
             <div class="grid-item vertical fade-in"><img src="./assets/wedding11.jpg" alt="사진11"></div>
             <div class="grid-item vertical fade-in"><img src="./assets/wedding12.jpg" alt="사진12"></div>
-            <div class="grid-item vertical fade-in"><img src="./assets/wedding13.jpg" alt="사진13"></div>
-            <div class="grid-item vertical fade-in"><img src="./assets/wedding14.jpg" alt="사진14"></div>
         </div>
     </section>
 
