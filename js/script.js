@@ -153,12 +153,15 @@ if (galleryToggle && gridGallery) {
             gridGallery.classList.add('collapsed');
             gridGallery.classList.remove('expanded');
             if (toggleText) toggleText.textContent = '더보기';
-            
-            // 접는 즉시 '마음 전하실 곳' 섹션으로 부드럽게 이동
-            const accountSection = document.querySelector('.account');
-            if (accountSection) {
-                accountSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+
+            // 그리드 접힘(max-height 0.6s) 후 레이아웃이 안정된 뒤 스크롤해야
+            // 중간 프레임에서 목표가 어긋나 신부측 계좌 등으로 보이는 문제를 막을 수 있음
+            const accountTitle = document.getElementById('account-section-title');
+            window.setTimeout(() => {
+                if (accountTitle) {
+                    accountTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 650);
         }
     });
 }
