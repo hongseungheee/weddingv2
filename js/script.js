@@ -139,29 +139,66 @@ document.addEventListener('DOMContentLoaded', () => {
 // [갤러리 토글 기능]
 const galleryToggle = document.getElementById('gallery-toggle');
 const gridGallery = document.getElementById('grid-gallery');
+const gallerySection = document.querySelector('.gallery');
 const toggleText = document.querySelector('.toggle-text');
 
 if (galleryToggle && gridGallery) {
+    let collapseScrollFallbackId = null;
+    let collapseTransitionEndHandler = null;
+
     galleryToggle.addEventListener('click', () => {
         const isCollapsed = gridGallery.classList.contains('collapsed');
-        
+
+        if (collapseScrollFallbackId !== null) {
+            window.clearTimeout(collapseScrollFallbackId);
+            collapseScrollFallbackId = null;
+        }
+        if (collapseTransitionEndHandler) {
+            gridGallery.removeEventListener('transitionend', collapseTransitionEndHandler);
+            collapseTransitionEndHandler = null;
+        }
+
         if (isCollapsed) {
             gridGallery.classList.remove('collapsed');
             gridGallery.classList.add('expanded');
+            if (gallerySection) gallerySection.classList.add('gallery-expanded');
             if (toggleText) toggleText.textContent = '접기';
         } else {
             gridGallery.classList.add('collapsed');
             gridGallery.classList.remove('expanded');
+            if (gallerySection) gallerySection.classList.remove('gallery-expanded');
             if (toggleText) toggleText.textContent = '더보기';
 
-            // 그리드 접힘(max-height 0.6s) 후 레이아웃이 안정된 뒤 스크롤해야
-            // 중간 프레임에서 목표가 어긋나 신부측 계좌 등으로 보이는 문제를 막을 수 있음
             const accountTitle = document.getElementById('account-section-title');
-            window.setTimeout(() => {
-                if (accountTitle) {
-                    accountTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            let scrolledAfterCollapse = false;
+
+            const scrollToAccountTitleOnce = () => {
+                if (scrolledAfterCollapse || !accountTitle) return;
+                scrolledAfterCollapse = true;
+                if (collapseTransitionEndHandler) {
+                    gridGallery.removeEventListener('transitionend', collapseTransitionEndHandler);
+                    collapseTransitionEndHandler = null;
                 }
-            }, 650);
+                if (collapseScrollFallbackId !== null) {
+                    window.clearTimeout(collapseScrollFallbackId);
+                    collapseScrollFallbackId = null;
+                }
+                window.requestAnimationFrame(() => {
+                    window.requestAnimationFrame(() => {
+                        const top = accountTitle.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({ top, behavior: 'auto' });
+                    });
+                });
+            };
+
+            collapseTransitionEndHandler = (ev) => {
+                if (ev.target !== gridGallery) return;
+                if (ev.propertyName !== 'max-height') return;
+                scrollToAccountTitleOnce();
+            };
+
+            gridGallery.addEventListener('transitionend', collapseTransitionEndHandler);
+            collapseScrollFallbackId = window.setTimeout(scrollToAccountTitleOnce, 700);
         }
     });
 }
