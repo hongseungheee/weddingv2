@@ -1,9 +1,11 @@
 :root {
-    --gold: #c5a47e; /* 좀 더 차분하고 고급스러운 샴페인 골드 */
+    --gold: #c5a47e;
+    /* 좀 더 차분하고 고급스러운 샴페인 골드 */
     --gold-light: #e8ded2;
     --bg-cream: #fdfcfb;
     --white: #ffffff;
-    --text-dark: #2c2c2c; /* 약간 더 깊은 다크 그레이 */
+    --text-dark: #2c2c2c;
+    /* 약간 더 깊은 다크 그레이 */
     --text-gray: #757575;
     --text-light: #a8a8a8;
 }
@@ -29,7 +31,9 @@ body {
 }
 
 /* 모바일 자동 링크 스타일 제거 */
-a[href^="tel"], a[href^="mailto"], a[href^="sms"] {
+a[href^="tel"],
+a[href^="mailto"],
+a[href^="sms"] {
     color: inherit !important;
     text-decoration: none !important;
 }
@@ -43,7 +47,8 @@ section:not(.intro) {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     font-size: 1.05rem;
-    letter-spacing: 0.3em; /* 자간을 더 넓게 */
+    letter-spacing: 0.3em;
+    /* 자간을 더 넓게 */
     margin-bottom: 30px;
     color: var(--gold);
     text-transform: uppercase;
@@ -56,7 +61,8 @@ section:not(.intro) {
 .intro {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100svh; /* 주소창 변화에도 크기 고정 */
     padding: 0;
     overflow: hidden;
 }
@@ -118,6 +124,7 @@ section:not(.intro) {
     0% {
         fill: transparent;
     }
+
     100% {
         fill: var(--gold);
         text-shadow: 0 0 10px rgba(176, 146, 106, 0.3);
@@ -185,7 +192,7 @@ section:not(.intro) {
     background: #fff;
     padding: 30px 20px;
     border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     border: 1px solid #f2f2f2;
 }
 
@@ -208,7 +215,9 @@ section:not(.intro) {
     color: var(--text-dark);
 }
 
-.calendar .sun { color: #e57373; }
+.calendar .sun {
+    color: #e57373;
+}
 
 .d-day {
     display: inline-flex;
@@ -379,6 +388,7 @@ section:not(.intro) {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -447,7 +457,9 @@ section:not(.intro) {
     opacity: 0.7;
 }
 
-.btn-naver, .btn-kakao-navi, .btn-tmap {
+.btn-naver,
+.btn-kakao-navi,
+.btn-tmap {
     /* 개별 배경색 제거하고 통일감 부여 */
     background-color: transparent !important;
 }
@@ -457,7 +469,7 @@ section:not(.intro) {
     text-align: left;
     background-color: transparent;
     padding: 0;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding-top: 40px;
 }
 
@@ -525,7 +537,7 @@ section:not(.intro) {
 .account-item {
     margin-bottom: 25px;
     padding-bottom: 25px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .account-item:last-child {
@@ -639,11 +651,34 @@ section:not(.intro) {
     transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.grid-gallery .stagger-item:nth-child(1) { transition-delay: 0.05s; }
-.grid-gallery .stagger-item:nth-child(2) { transition-delay: 0.1s; }
-.grid-gallery .stagger-item:nth-child(3) { transition-delay: 0.15s; }
-.grid-gallery .stagger-item:nth-child(4) { transition-delay: 0.2s; }
-.grid-gallery .stagger-item:nth-child(5) { transition-delay: 0.25s; }
-.grid-gallery .stagger-item:nth-child(6) { transition-delay: 0.3s; }
-.grid-gallery .stagger-item:nth-child(7) { transition-delay: 0.35s; }
-.grid-gallery .stagger-item:nth-child(8) { transition-delay: 0.4s; }
+.grid-gallery .stagger-item:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.grid-gallery .stagger-item:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.grid-gallery .stagger-item:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.grid-gallery .stagger-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.grid-gallery .stagger-item:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+.grid-gallery .stagger-item:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+.grid-gallery .stagger-item:nth-child(7) {
+    transition-delay: 0.35s;
+}
+
+.grid-gallery .stagger-item:nth-child(8) {
+    transition-delay: 0.4s;
+}
