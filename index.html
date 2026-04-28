@@ -8,7 +8,7 @@
 
     <meta property="og:title" content="이민희 ♥ 홍승희 결혼식에 초대합니다">
     <meta property="og:description" content="2026년 6월 6일 토요일 오후 1시 30분">
-    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/mainphoto.jpg">
+    <meta property="og:image" content="https://hongseungheee.github.io/weddingv2/assets/main.jpg">
 
     <title>우리의 결혼식에 초대합니다</title>
 
@@ -26,7 +26,7 @@
 <body>
     <section class="intro">
         <div class="main-photo">
-            <img src="./assets/mainphoto.jpg" alt="메인 사진">
+            <img src="./assets/main.jpg" alt="메인 사진">
             <div class="overlay"></div>
         </div>
 
@@ -168,25 +168,45 @@
     </section>
 
     <section class="gallery">
-        <h3 class="serif gold-text fade-in">GALLERY</h3>
-        <div class="grid-gallery">
-            <!-- 가로 -->
-            <div class="grid-item horizontal fade-in stagger-item"><img src="./assets/gallery6.jpg" alt="사진6"></div>
-
-            <!-- 세로 2개 -->
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery1.jpg" alt="사진1"></div>
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery2.jpg" alt="사진2"></div>
-
-            <!-- 세로 2개 -->
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery3.jpg" alt="사진3"></div>
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery4.jpg" alt="사진4"></div>
-
-            <!-- 가로 -->
-            <div class="grid-item horizontal fade-in stagger-item"><img src="./assets/gallery9.jpg" alt="사진9"></div>
-
-            <!-- 남은 세로 사진들 -->
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery5.jpg" alt="사진5"></div>
-            <div class="grid-item vertical fade-in stagger-item"><img src="./assets/gallery7.jpg" alt="사진7"></div>
+        <div class="gallery-header fade-in">
+            <h3 class="serif gold-text">GALLERY</h3>
+            <button id="gallery-toggle" class="gallery-toggle-btn">
+                <span class="toggle-text">더보기</span>
+                <svg class="toggle-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </button>
+        </div>
+        <div id="grid-gallery" class="grid-gallery collapsed">
+            <!-- 1. 세로 사진으로 가볍게 시작 -->
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding2.jpg" alt="사진2"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding3.jpg" alt="사진3"></div>
+            
+            <!-- 2. 큰 사진 첫 번째 분산 (15번) -->
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding15.jpg" alt="사진15"></div>
+            
+            <!-- 3. 다시 세로 화보 -->
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding4.jpg" alt="사진4"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding5.jpg" alt="사진5"></div>
+            
+            <!-- 4. 큰 사진 두 번째 분산 (16번) -->
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding16.jpg" alt="사진16"></div>
+            
+            <!-- 5. 세로 화보 묶음 -->
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding7.jpg" alt="사진7"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding8.jpg" alt="사진8"></div>
+            
+            <!-- 6. 큰 사진 세 번째 분산 (1번) -->
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding1.jpg" alt="사진1"></div>
+            
+            <!-- 7. 분위기 전환 가로들 -->
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding6.jpg" alt="사진6"></div>
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding9.jpg" alt="사진9"></div>
+            <div class="grid-item horizontal fade-in"><img src="./assets/wedding10.jpg" alt="사진10"></div>
+            
+            <!-- 8. 마무리 세로 화보 -->
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding11.jpg" alt="사진11"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding12.jpg" alt="사진12"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding13.jpg" alt="사진13"></div>
+            <div class="grid-item vertical fade-in"><img src="./assets/wedding14.jpg" alt="사진14"></div>
         </div>
     </section>
 
