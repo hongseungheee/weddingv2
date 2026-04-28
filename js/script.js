@@ -136,6 +136,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// [갤러리 토글 기능]
+const galleryToggle = document.getElementById('gallery-toggle');
+const gridGallery = document.getElementById('grid-gallery');
+const toggleText = document.querySelector('.toggle-text');
+
+if (galleryToggle && gridGallery) {
+    galleryToggle.addEventListener('click', () => {
+        const isCollapsed = gridGallery.classList.contains('collapsed');
+        
+        if (isCollapsed) {
+            gridGallery.classList.remove('collapsed');
+            gridGallery.classList.add('expanded');
+            if (toggleText) toggleText.textContent = '접기';
+        } else {
+            gridGallery.classList.add('collapsed');
+            gridGallery.classList.remove('expanded');
+            if (toggleText) toggleText.textContent = '더보기';
+            
+            // 접는 즉시 '마음 전하실 곳' 섹션으로 부드럽게 이동
+            const accountSection = document.querySelector('.account');
+            if (accountSection) {
+                accountSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+}
+
 // 6. 계좌번호 복사 기능
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
