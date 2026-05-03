@@ -98,7 +98,7 @@ section:not(.intro) {
 
 .intro-content {
     position: absolute;
-    top: 2%;
+    top: 8%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -110,7 +110,7 @@ section:not(.intro) {
 .wedding-svg {
     width: 100%;
     height: 100px;
-    margin-bottom: 6px;
+    margin-bottom: 25px;
     overflow: visible;
 }
 
@@ -148,7 +148,6 @@ section:not(.intro) {
     transform: translateY(15px);
     animation: fadeUp 1.5s ease-out forwards;
     animation-delay: 2s;
-    margin-top: -12px;
 }
 
 @keyframes fadeUp {
@@ -164,8 +163,7 @@ section:not(.intro) {
     letter-spacing: 2px;
 }
 
-.main-location,
-.main-hall {
+.main-location {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.8);
     margin-top: 5px;
@@ -489,17 +487,8 @@ section:not(.intro) {
 .venue-name {
     font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     color: var(--text-dark);
-}
-
-.venue-hall {
-    font-size: 0.95rem;
-    color: #555;
-    margin-top: 0;
-    margin-bottom: 6px;
-    font-weight: 400;
-    letter-spacing: 0.02em;
 }
 
 .venue-address {
