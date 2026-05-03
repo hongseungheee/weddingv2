@@ -2,7 +2,7 @@
 // ★ [지도 위치 설정 영역]
 const VENUE_LAT = 37.559111; // 위도
 const VENUE_LNG = 126.984459; // 경도
-const VENUE_NAME = '명동라루체 웨딩홀';
+const VENUE_NAME = '명동라루체 그레이스홀';
 
 // 카카오 디벨로퍼스 JavaScript 키
 const KAKAO_APP_KEY = '1acd146a3e0de1cc11ff78640d3c7a21'; 
@@ -244,7 +244,7 @@ function naviTmap() {
             content: {
                 title: '이민희 ♥ 홍승희 결혼식에 초대합니다',
                 description: '2026년 6월 6일 토요일 오후 1시 30분\n' + VENUE_NAME,
-                imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/main.jpg',
+                imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/kakao_main.jpg',
                 link: {
                     mobileWebUrl: shareUrl,
                     webUrl: shareUrl,
