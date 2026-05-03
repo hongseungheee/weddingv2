@@ -10,6 +10,14 @@ const KAKAO_APP_KEY = '1acd146a3e0de1cc11ff78640d3c7a21';
 
 Kakao.init(KAKAO_APP_KEY);
 
+// 모바일 브라우저 주소창 리사이징 문제 해결
+function setVh() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVh();
+window.addEventListener('resize', setVh);
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // 2. 라이트박스 로직
