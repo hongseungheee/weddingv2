@@ -2,16 +2,16 @@
 // ★ [지도 위치 설정 영역]
 const VENUE_LAT = 37.559111; // 위도
 const VENUE_LNG = 126.984459; // 경도
-const VENUE_NAME = '명동라루체 그레이스홀';
+const VENUE_NAME = '명동 라루체 그레이스홀';
 
 // 카카오 디벨로퍼스 JavaScript 키
-const KAKAO_APP_KEY = '1acd146a3e0de1cc11ff78640d3c7a21'; 
+const KAKAO_APP_KEY = '1acd146a3e0de1cc11ff78640d3c7a21';
 // ==========================================
 
-Kakao.init(KAKAO_APP_KEY); 
+Kakao.init(KAKAO_APP_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 2. 라이트박스 로직
     const lightbox = document.getElementById('lightbox');
     const lightboxWrapper = document.getElementById('lightbox-wrapper');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // 3. 팝업 표시 및 스크롤 방지
                 lightbox.classList.add('show');
-                document.body.style.overflow = 'hidden'; 
+                document.body.style.overflow = 'hidden';
 
                 // 4. 스와이퍼 새롭게 초기화 (클릭한 인덱스를 시작점으로)
                 lightboxSwiper = new Swiper('.lightbox-swiper', {
@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // 시간을 00:00:00으로 맞춰서 날짜 차이만 정확히 계산
         const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         const weddingMidnight = new Date(weddingDate.getFullYear(), weddingDate.getMonth(), weddingDate.getDate());
-        
+
         const diffTime = weddingMidnight - todayMidnight;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        
+
         const container = document.getElementById('d-day-container');
         if (diffDays > 0) {
             dDayElement.textContent = diffDays;
@@ -122,15 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. 카카오맵 API 초기화 및 그리기 (설정 영역의 변수 사용)
     if (window.kakao && kakao.maps) {
-        const mapContainer = document.getElementById('map'); 
-        const mapOption = { 
-            center: new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG), 
-            level: 4 
+        const mapContainer = document.getElementById('map');
+        const mapOption = {
+            center: new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG),
+            level: 4
         };
         const map = new kakao.maps.Map(mapContainer, mapOption);
-        
+
         // 마커 올리기
-        const markerPosition  = new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG); 
+        const markerPosition = new kakao.maps.LatLng(VENUE_LAT, VENUE_LNG);
         const marker = new kakao.maps.Marker({ position: markerPosition });
         marker.setMap(map);
     }
@@ -236,28 +236,28 @@ function naviTmap() {
     window.open(`https://tmap.co.kr/tmap2/mobile/route.jsp?name=${encodeURIComponent(VENUE_NAME)}&lat=${VENUE_LAT}&lon=${VENUE_LNG}`);
 }
 
-    // 8. 카카오톡 공유하기 기능
-    function shareKakao() {
-        const shareUrl = 'https://hongseungheee.github.io/weddingv2/'; 
-        Kakao.Share.sendDefault({
-            objectType: 'feed',
-            content: {
-                title: '이민희 ♥ 홍승희 결혼식에 초대합니다',
-                description: '2026년 6월 6일 토요일 오후 1시 30분\n' + VENUE_NAME,
-                imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/kakao_main.jpg',
+// 8. 카카오톡 공유하기 기능
+function shareKakao() {
+    const shareUrl = 'https://hongseungheee.github.io/weddingv2/';
+    Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: '이민희 ♥ 홍승희 결혼식에 초대합니다',
+            description: '2026년 6월 6일 토요일 오후 1시 30분\n' + VENUE_NAME,
+            imageUrl: 'https://hongseungheee.github.io/weddingv2/assets/kakao_main.jpg',
+            link: {
+                mobileWebUrl: shareUrl,
+                webUrl: shareUrl,
+            },
+        },
+        buttons: [
+            {
+                title: '청첩장 열어보기',
                 link: {
                     mobileWebUrl: shareUrl,
                     webUrl: shareUrl,
                 },
             },
-            buttons: [
-                {
-                    title: '청첩장 열어보기',
-                    link: {
-                        mobileWebUrl: shareUrl,
-                        webUrl: shareUrl,
-                    },
-                },
-            ],
-        });
-    }
+        ],
+    });
+}
