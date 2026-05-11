@@ -197,20 +197,11 @@ section.parents-intro {
     font-weight: 300;
     letter-spacing: 0.02em;
     margin: 0;
+    color: var(--text-gray);
 }
 
 .parents-line + .parents-line {
     margin-top: 0.35em;
-}
-
-.parents-name {
-    color: #6a6a6a;
-    font-weight: 400;
-}
-
-.parents-muted {
-    color: #a3a3a3;
-    font-weight: 300;
 }
 
 section.invitation.fade-in {
