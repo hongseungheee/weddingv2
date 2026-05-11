@@ -186,6 +186,63 @@ section:not(.intro) {
     letter-spacing: 0.02em;
 }
 
+/* [혼주 성함 — invitation 상단] */
+section.parents-intro {
+    padding: 120px 20px 40px;
+}
+
+.parents-line {
+    font-size: 0.95rem;
+    line-height: 2;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.parents-line + .parents-line {
+    margin-top: 0.35em;
+}
+
+.parents-name {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.parents-muted {
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+section.invitation.fade-in {
+    padding-top: 48px;
+}
+
+/* [화환 사양 — invitation 하단] */
+section.flower-notice {
+    padding: 40px 24px 72px;
+}
+
+.flower-notice-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    line-height: 1.5;
+}
+
+.flower-notice-body {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 2;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    max-width: 340px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* [달력] */
 .calendar-section {
     background-color: var(--bg-cream);
