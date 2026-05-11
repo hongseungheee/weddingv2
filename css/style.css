@@ -216,8 +216,8 @@ section.flower-notice {
 .flower-notice-title {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.85rem;
-    font-weight: 400;
-    color: #6f6f6f;
+    font-weight: 300;
+    color: var(--text-gray);
     letter-spacing: 0.02em;
     margin: 0 0 14px;
     line-height: 2.2;
@@ -225,7 +225,7 @@ section.flower-notice {
 
 .flower-notice-body {
     font-size: 0.85rem;
-    color: #8a8a8a;
+    color: var(--text-gray);
     line-height: 2.2;
     font-weight: 300;
     letter-spacing: 0.02em;
